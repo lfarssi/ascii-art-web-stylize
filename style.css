@@ -1,0 +1,21 @@
+body {
+    background-color: #180f0f;
+    font-family: 'Roboto', sans-serif;
+    margin: auto;
+}
+
+h1 {
+    color: #f2f2f2;
+    text-align: center;
+    margin-top: 50px;
+}
+
+button {
+    padding: 10px;
+    background: blue;
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
