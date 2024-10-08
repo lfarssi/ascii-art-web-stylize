@@ -2,27 +2,31 @@ package function
 
 import (
 	"bufio"
-
+	"net/http"
 	"os"
 	"strings"
 )
 
-func TraitmentData(bnr string, arg string) string {
+func TraitmentData(w http.ResponseWriter, bnr string, arg string) string {
 	banner := bnr
 	fileName := "./banners/" + banner + ".txt"
+	
 	// Open the ASCII art file
 	file, err := os.Open(fileName)
 	if err != nil {
-		return "Error opening the file"
+		http.Error(w, "Error opening the file", http.StatusInternalServerError)
+		return ""
 	}
 	defer file.Close()
+
 	var asciiArt []string
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		asciiArt = append(asciiArt, scanner.Text())
 	}
 	if err := scanner.Err(); err != nil {
-		return "Error reading the file"
+		http.Error(w, "Error reading the file", http.StatusInternalServerError)
+		return ""
 	}
 
 	var result string
@@ -37,7 +41,8 @@ func TraitmentData(bnr string, arg string) string {
 			for _, r := range line {
 				// Ensure the character is within the valid ASCII range
 				if r < 32 || r > 126 {
-					return "Please enter a valid character between ascii code 32 and 126"
+					http.Error(w, "Please enter a valid character between ASCII code 32 and 126", http.StatusBadRequest)
+					return ""
 				}
 				index := 9*(int(r)-32) + i
 				result += asciiArt[index]

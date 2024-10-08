@@ -1,21 +1,74 @@
 body {
-    background-color: #180f0f;
     font-family: 'Roboto', sans-serif;
-    margin: auto;
+    background-image: url("theo_punisher.png");
+    background-size: cover;
+    color: #333; 
 }
 
 h1 {
-    color: #f2f2f2;
     text-align: center;
     margin-top: 50px;
+    color: white; 
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin: 20px; 
+}
+
+textarea {
+    width: 100%; 
+    max-width: 400px; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none; 
+    margin-bottom: 10px; 
+}
+
+.checkbox {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.checkbox input {
+    margin-right: 10px; 
+}
+
+.btn {
+    margin-top: 10px;
 }
 
 button {
-    padding: 10px;
-    background: blue;
+    padding: 10px 20px;
+    background: rgb(7, 94, 145);
     color: white;
     font-size: 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition:  0.6s;
+}
+
+button:hover {
+    background: rgb(74, 172, 253);
+}
+
+.res {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.result {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px; 
+    background: rgba(255, 255, 255, 0.8); 
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 600px; 
+    overflow: auto; 
 }

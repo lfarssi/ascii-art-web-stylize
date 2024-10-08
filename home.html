@@ -4,27 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>ASCII Art Web</title>
 </head>
 <body>
     <h1>ASCII-ART-WEB</h1>
 
-    <form action="/ascii-art" method="post">
-        <textarea name="data" id="textarea" maxlength="200" cols="40" rows="10" required></textarea>
+    <form action="/ascii-art" method="post" class="form">
+        <textarea name="data" id="textarea" maxlength="200" cols="40" rows="10" required placeholder="Enter your text here..."></textarea>
         <div class="checkbox">
-            <input type="radio" name="banner" id="" value="standard" checked>standard
-            <input type="radio" name="banner" id="" value="shadow">shadow
-            <input type="radio" name="banner" id="" value="thinkertoy">thinkertoy
+            <input type="radio" name="banner" id="standard" value="standard" checked>
+            <label for="standard">Standard</label>
+            <input type="radio" name="banner" id="shadow" value="shadow">
+            <label for="shadow">Shadow</label>
+            <input type="radio" name="banner" id="thinkertoy" value="thinkertoy">
+            <label for="thinkertoy">Thinkertoy</label>
         </div>
         <div class="btn">
             <button type="submit">Submit</button>
         </div>
     </form>
-{{if .Res }}
-    <h2 class="a">Result:</h2>
+
+    {{if .Res }}
+    <h2 class="res">Result:</h2>
     <div class="result">
         <pre>{{.Res}}</pre>
     </div>
-{{end}}
+    {{end}}
 </body>
 </html>
