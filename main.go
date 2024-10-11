@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
-
 	"strings"
 )
 
@@ -19,10 +18,10 @@ type Data struct {
 
 func processHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != "POST" {
-        http.ServeFile(w, r, "400.html")
+        http.ServeFile(w, r, "templates/400.html")
         return
     }
-	temp, err := template.ParseFiles("home.html")
+	temp, err := template.ParseFiles("templates/home.html")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -33,11 +32,11 @@ func processHandler(w http.ResponseWriter, r *http.Request) {
 	
 	data.Str = r.FormValue("data")
 	if data.Str == "" {
-        http.ServeFile(w, r, "400.html")
+        http.ServeFile(w, r, "templates/400.html")
 		return
 	}
 	if len(data.Str) > 200 {
-        http.ServeFile(w, r, "400.html")
+        http.ServeFile(w, r, "templates/400.html")
 		return
 	}
 
@@ -51,46 +50,46 @@ func processHandler(w http.ResponseWriter, r *http.Request) {
 	
 	data.Res = function.TraitmentData(w, data.Banner, data.Str)
 	if data.Res == "" { // If TraitmentData failed to generate the result
-        http.ServeFile(w, r, "500.html")
+        http.ServeFile(w, r, "templates/500.html")
 		return
 	}
 	data.A = template.HTML(strings.ReplaceAll(data.Res, "\n", "<br>"))
 
 	if err := temp.Execute(w, data); err != nil {
-        http.ServeFile(w, r, "500.html")
+        http.ServeFile(w, r, "templates/500.html")
 		return
 	}
 }
 
 func pageHandler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
-        http.ServeFile(w, r, "404.html")
+        http.ServeFile(w, r, "templates/404.html")
 		return
 	}
 	if r.Method != "GET" {
-        http.ServeFile(w, r, "400.html")
+        http.ServeFile(w, r, "templates/400.html")
         return
     }
-	t, err := template.ParseFiles("home.html")
+	t, err := template.ParseFiles("templates/home.html")
 	if err != nil {
-        http.ServeFile(w, r, "404.html")
+        http.ServeFile(w, r, "templates/404.html")
 		return
 	}
 
 	if err := t.Execute(w, nil); err != nil {
-        http.ServeFile(w, r, "500.html")
+        http.ServeFile(w, r, "templates/500.html")
 		return
 	}
 }
 func cssHandler(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, "style.css")
+	http.ServeFile(w, r, "assets/style.css")
 }
 
 func main() {
 
 	http.HandleFunc("/", pageHandler)
 	http.HandleFunc("/ascii-art", processHandler)
-	http.HandleFunc("/style.css", cssHandler)
+	http.HandleFunc("/assets/style.css", cssHandler)
 	fmt.Println("Server is running at http://localhost:8088")
 	err := http.ListenAndServe(":8088", nil)
 	if err != nil {

@@ -1,14 +1,13 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background-image: url("theo_punisher.png");
-    background-size: cover;
+    background-image: url("../bg.png");
+    background-size: contain;
     color: #333; 
 }
 
 h1 {
     text-align: center;
     margin-top: 50px;
-    color: white; 
 }
 
 .form {
@@ -66,9 +65,25 @@ button:hover {
     display: flex;
     justify-content: center;
     margin-top: 10px; 
-    background: rgba(255, 255, 255, 0.8); 
     padding: 10px;
     border-radius: 5px;
     max-width: 600px; 
-    overflow: auto; 
+}
+.btn2 {
+    display: flex; 
+    justify-content: center; 
+    height: 100vh; 
+}
+span a {
+    display: inline-block; 
+    padding: 10px 20px;
+    background-color:rgb(7, 94, 145); 
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;         
+    transition: background-color 0.3s;
+}
+
+span a:hover {
+    background-color: rgb(74, 172, 253);
 }
