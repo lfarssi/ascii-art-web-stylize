@@ -1,4 +1,4 @@
-package function
+package ascii
 
 import (
 	"bufio"
