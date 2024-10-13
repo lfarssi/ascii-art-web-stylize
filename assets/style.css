@@ -1,6 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background-image: url("./the_punisher.png");
+    background-image: url("./background.png");
     background-size: cover;
     background-repeat: no-repeat;
     color: #333;
@@ -9,7 +9,6 @@ body {
 h1 {
     text-align: center;
     margin-top: 50px;
-    color: #ccc;
 }
 
 .form {
@@ -23,7 +22,7 @@ textarea {
     width: 100%;
     max-width: 1400px;
     padding: 10px;
-    background-color: rgb(172, 172, 172);
+    background-color: rgba(173, 216, 230, 0.8); 
     border: 1px solid #ccc;
     border-radius: 5px;
     resize: none;
@@ -34,7 +33,6 @@ textarea {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
-    color: #fffafa;
 }
 
 .checkbox input {
@@ -47,7 +45,7 @@ textarea {
 
 button {
     padding: 10px 20px;
-    background: rgb(255, 0, 0);
+    background: rgb(0, 60, 255);
     color: rgb(255, 255, 255);
     font-size: 20px;
     border: none;
@@ -57,20 +55,19 @@ button {
 }
 
 button:hover {
-    background: rgb(247, 113, 103);
+    background: rgb(103, 182, 247);
 }
 
 .res {
     text-align: center;
     margin-top: 20px;
-    color: #ffffff;
+    
 
 }
 
 .result {
     display: flex;
     justify-content: center;
-    color: #ccc;
     margin-top: 10px;
     padding: 10px;
     border-radius: 5px;
@@ -86,7 +83,7 @@ button:hover {
 div a {
     display: inline-block;
     padding: 10px 20px;
-    background-color: rgb(255, 5, 5);
+    background-color: rgb(5, 43, 255);
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -94,6 +91,66 @@ div a {
 }
 
 div a:hover {
-    background-color: rgb(253, 74, 74);
+    background-color: rgb(74, 202, 253);
 }
 
+@media (max-width: 768px) {
+    body{
+        background-size: cover;
+    }
+    h1 {
+        font-size: 24px;
+        margin-top: 30px;
+    }
+
+    textarea {
+        padding: 8px;
+        font-size: 16px;
+        width: 100%;
+    }
+
+    button {
+        font-size: 18px;
+        padding: 8px 16px;
+    }
+
+    .result {
+        flex-direction: column;
+        padding: 5px;
+    }
+
+    div a {
+        padding: 8px 16px;
+    }
+}
+@media (min-width: 480px) {
+    body{
+        background-size: cover;
+    }
+    h1 {
+        font-size: 20px;
+        margin-top: 20px;
+    }
+
+    textarea {
+        font-size: 14px;
+        width: 100%;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+
+    .form {
+        margin: 10px;
+    }
+
+    .res {
+        font-size: 14px;
+    }
+
+    div a {
+        padding: 6px 12px;
+    }
+}
