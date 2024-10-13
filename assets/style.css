@@ -4,6 +4,7 @@
 }
 html, body {
     height:100%;
+    margin: 0;
 }
 body {
     font-family: 'Roboto', sans-serif;
@@ -37,14 +38,28 @@ textarea {
     margin-bottom: 10px;
 }
 
-.checkbox {
+.button-group {
     display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
 }
 
-.checkbox input {
-    margin-right: 10px;
+.button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: white;
+    transition:  0.6s;
+}
+
+input[type="radio"] {
+    display: none; 
+}
+
+input[type="radio"]:checked + .button {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
 }
 
 .btn {
@@ -74,14 +89,19 @@ button:hover {
 }
 
 .result {
+
+    max-width: 600px;
+    max-height: 300px;
+    overflow-y: auto; 
+    overflow-x: auto; 
+    background-color: rgba(173, 216, 230, 0.8); 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.container {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    max-width: 600px;
 }
-
 .btn2 {
     display: flex;
     justify-content: center;
